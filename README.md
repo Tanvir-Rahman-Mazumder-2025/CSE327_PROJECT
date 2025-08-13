@@ -75,5 +75,23 @@ JWT_SECRET=your_secret_key
 ```yaml
 http://localhost:3000
 ```
+## 🚀How to Develop
+### Create a New Branch
+```bash
+git checkout -b <your_feature_branch>
+```
+### Make Changes
 
+Modify routes, controllers, models (if MongoDB schema changes are involved), or EJS views.
 
+### Commit & Push
+```bash
+git add .
+git commit -m "Brief description of changes"
+git push origin <your_feature_branch>
+```
+### Create a Pull Request (PR)
+Open a PR from your branch to main. 
+
+### Review & Merge
+Once reviewers approve your changes, merge the PR into main.
