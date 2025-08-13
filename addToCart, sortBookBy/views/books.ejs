@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>All Books</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 text-gray-800">
+
+  <%- include('navbar') %>
+
+
+
+    <section class="max-w-6xl mx-auto p-6">
+
+      <h1 class="text-3xl font-bold mb-6">All Books</h1>
+
+    
+       
+          <form method="GET" action="/api/book/sort_books_by_date" class="mb-6 flex items-center space-x-4">
+            <label for="dateSort" class="font-semibold">Sort by Date:</label>
+            <select name="sort" id="dateSort" onchange="this.form.submit()" class="border rounded px-3 py-1">
+              <option value="" <%=!sort || (!sort.startsWith('date')) ? 'selected' : '' %>>Default</option>
+              <option value="desc" <%=sort==='date_newest' ? 'selected' : '' %>>Newest First</option>
+              <option value="asc" <%=sort==='date_oldest' ? 'selected' : '' %>>Oldest First</option>
+            </select>
+          </form>
+
+          <form method="GET" action="/api/book/sort_books_by_price" class="mb-6 flex items-center space-x-4">
+            <label for="priceSort" class="font-semibold">Sort by Price:</label>
+            <select name="sort" id="priceSort" onchange="this.form.submit()" class="border rounded px-3 py-1">
+              <option value="" <%=!sort || (!sort.startsWith('price')) ? 'selected' : '' %>>Default</option>
+              <option value="asc" <%=sort==='price_asc' ? 'selected' : '' %>>Low to High</option>
+              <option value="desc" <%=sort==='price_desc' ? 'selected' : '' %>>High to Low</option>
+            </select>
+          </form>
+
+
+     
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <% books.forEach(book=> { %>
+              <div class="bg-white shadow-md rounded-lg overflow-hidden flex flex-col p-3">
+                <img src="<%= book.image_url %>" alt="<%= book.title %>" class="w-full h-64 object-contain mx-auto" />
+
+
+                <div class="p-4 flex-grow flex flex-col justify-between">
+                  <div>
+                    <h2 class="text-xl font-semibold">
+                      <%= book.title %>
+                    </h2>
+                    <p class="text-sm text-gray-600">by <%= book.author %>
+                    </p>
+                    <p class="mt-2 font-bold text-lg">৳ <%= book.price %>
+                    </p>
+                    <p class="text-sm mt-1">
+                      <%= book.category %> | <%= book.language %>
+                    </p>
+                    <p class="text-xs text-green-600 mt-1">
+                      <%= book.availavility_status %>
+                    </p>
+                  </div>
+
+                  <div class="mt-4 flex flex-wrap space-x-2 space-y-2">
+                  
+                     
+                      <form method="POST" action="/api/cart/add_to_cart">
+                        <input type="hidden" name="book_id" value="<%= book._id %>" />
+                        <input type="number" name="quantity" value="1" min="1" />
+                        <button type="submit" class="text-white bg-blue-500 px-2 py-1">Add to Cart</button>
+                      </form>
+
+
+
+                     
+                  </div>
+                </div>
+              </div>
+       <% }); %>
+
+        
+          </div>
+
+    </section>
+
+</body>
+
+</html>
