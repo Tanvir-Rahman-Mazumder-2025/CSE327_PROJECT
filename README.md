@@ -1,5 +1,7 @@
 # BoiBazaar – An Online Bookstore
 
+![Image book Store](https://github.com/Tanvir-Rahman-Mazumder-2025/CSE327_PROJECT/blob/main/public/images/bookselling_Cover.jpg)
+
 ### Group members:
 
 * Tanvir Rahman Mazumder 2232401642
