@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Place Order</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans min-h-screen">
+
+
+
+  <div class="flex flex-col items-center p-10">
+    <h1 class="text-4xl font-bold mb-10 text-gray-800">Place Order</h1>
+
+    <form action="/place_order" method="POST" class="bg-white p-10 rounded-2xl shadow-lg w-full max-w-2xl space-y-6">
+
+      <div>
+        <label for="phone" class="block text-lg font-semibold mb-2">Phone Number</label>
+        <input type="tel" name="phone" id="phone" required
+               class="w-full border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+      </div>
+
+      <div>
+        <label for="street" class="block text-lg font-semibold mb-2">Street</label>
+        <input type="text" name="street" id="street" required
+               class="w-full border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+      </div>
+
+      <div>
+        <label for="city" class="block text-lg font-semibold mb-2">City</label>
+        <input type="text" name="city" id="city" required
+               class="w-full border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+      </div>
+
+      <div>
+        <label for="state" class="block text-lg font-semibold mb-2">State</label>
+        <input type="text" name="state" id="state" required
+               class="w-full border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+      </div>
+
+      <div>
+        <label for="zip_code" class="block text-lg font-semibold mb-2">Zip Code</label>
+        <input type="text" name="zip_code" id="zip_code" required
+               class="w-full border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+      </div>
+
+      <div>
+        <label for="country" class="block text-lg font-semibold mb-2">Country</label>
+        <input type="text" name="country" id="country" required
+               class="w-full border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+      </div>
+
+      <div>
+        <label for="payment_method" class="block text-lg font-semibold mb-2">Payment Method</label>
+        <select name="payment_method" id="payment_method"
+                class="w-full border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500">
+          <option value="COD">Cash On Delivery</option>
+          <option value="Online">Online Payment</option>
+        </select>
+      </div>
+
+      <div class="flex justify-center">
+        <button type="submit" class="bg-blue-500 text-white text-lg font-semibold px-8 py-3 rounded-xl hover:bg-blue-600 transition">
+          Place Order
+        </button>
+      </div>
+
+    </form>
+  </div>
+
+</body>
+</html>
